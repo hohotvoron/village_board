@@ -12,14 +12,23 @@
         font-style: normal;
     }
     * {
-     	cursor: url('/images/handapet tonikyan.cur') 4 1, pointer;
+     	cursor: url('/images/d.cur') 0 0, auto;
 
+    }
+    button,
+    a,
+    select,
+    option,
+    input,
+    textarea {
+        cursor: url('/images/p.cur') 0 0, pointer;
     }
     body{
 
         margin: 0;
         padding: 0;
         font-family: 'izbushka';
+        
     }
     .main{
         margin: 0;
@@ -85,6 +94,39 @@
                 p{
                     text-align: center;
                 }
+                .info{
+                    margin-top: 45px;
+                    display: flex;
+                    justify-content: space-between;
+                    select{
+                        margin-right: 10px;
+                        font-family: 'izbushka';
+                        -webkit-text-stroke: 0.5px #000;
+                        font-size: 25px;
+                        letter-spacing: 1px;
+                        text-align: center;
+                        border: none;
+                        background-image: url('/images/button-fone.png');
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        option{
+                            border-top: 1px black solid;
+                            background-image: url('/images/button-fone.png');
+                            background: none;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
+                    }
+                    .b{
+                        color: green;
+                    }
+                    .c{
+                        color: blue;
+                    }
+                    .d{
+                        color: red;
+                    }
+                }
             }
         }
     }
@@ -123,8 +165,8 @@
                 height: 80px;
             }
             button{
-                display: block
-                align-self: flex-end;
+                justify-self: center;
+                display: block;
                 width: min(100px, 90%);
                 height: 50px;
                 border: none;
@@ -176,14 +218,35 @@
         <div class="zadacha">
             <h2>сходить в туалет</h2>
             <p>дада просто пописять сукоо</p>
+            <div class="info">
+                <p>сделать до: <span>31.12.2026</span></p>
+                <select name="status" id="select_status">
+                    <option value="active" class="c">в работе</option>
+                    <option value="done" class="b">сделано</option>
+                    <option value="lose" class="d">продолбали сроки</option>t
+                </select>
+            </div>
         </div>
         <div class="zadacha">
             <h2>сходить в туалет</h2>
             <p>дада просто пописять сукоо</p>
+            <p>сделать до: <span>31.12.2026</span></p>
+            <select name="status" id="">
+                <option value="done">сделано</option>
+                <option value="active">в работе</option>
+                <option value="lose">продолбали сроки</option>t
+            </select>
         </div>
         <div class="zadacha">
             <h2>сходить в туалет</h2>
             <p>дада просто пописять сукоо</p>
+            <p>сделать до: <span>31.12.2026</span></p>
+            <select name="status" id="">
+                
+                <option value="done">сделано</option>
+
+                <option value="lose">продолбали сроки</option>t
+            </select>
         </div>
     </div>
   </div>
@@ -196,6 +259,15 @@
     document.getElementById('krest').addEventListener('click', function(){
         document.getElementById('new_z').style = "display:none;";
         document.getElementById('krest').style = "display:none;";
+    });
+    document.getElementById('select_status').addEventListener('change', function(){
+        if(document.getElementById('select_status').value=="active"){
+            document.getElementById('select_status').className = "c";
+        }else if(document.getElementById('select_status').value=="done"){
+            document.getElementById('select_status').className = "b";
+        }else{
+            document.getElementById('select_status').className = "d";
+        }
     });
 </script>
 </html>
